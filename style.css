@@ -1,0 +1,36 @@
+/* 全体設定：文字を大きく */
+body { font-family: sans-serif; margin: 0; font-size: 16px; background: #f0f2f5; }
+
+/* ランド＝ピンク、シー＝ブルー */
+.item.land { border-left: 8px solid #ff80ab; background: #fff5f8; }
+.item.sea { border-left: 8px solid #4fc3f7; background: #f1faff; }
+
+/* 文字を大きく、タップしやすく */
+.item {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* 文字を大きく */
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.item.selected { background: #fff9c4 !important; border: 2px solid #fbc02d !important; }
+
+/* スケジュールに入れた時の色 */
+.schedule-item.land { background: #ff4081; color: white; border: none; }
+.schedule-item.sea { background: #0288d1; color: white; border: none; }
+
+/* フィルターボタンのデザイン */
+.filter-buttons { display: flex; gap: 5px; margin-bottom: 10px; }
+.filter-btn { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; }
+.filter-btn.active { background: #333; color: white; }
+#category-select { width: 100%; padding: 10px; margin-top: 5px; font-size: 16px; }
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .sidebar { height: 45vh !important; }
+    .main { height: 55vh; }
+    .time-label { width: 80px; font-size: 14px; }
+}
