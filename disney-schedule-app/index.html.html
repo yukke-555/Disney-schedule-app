@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ディズニー計画アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>施設・ワゴン一覧</h3>
+            <div id="attraction-list"></div>
+        </div>
+
+        <div class="main">
+            <h3>今日のスケジュール (8:00 - 21:00)</h3>
+            <div id="timeline-container">
+                </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<div class="sidebar">
+    <h3>施設・ワゴン一覧</h3>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="名前で検索..." onkeyup="filterAttractions()">
+    </div>
+    <div id="attraction-list"></div>
+</div>
