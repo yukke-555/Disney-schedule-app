@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ディズニー計画アプリ改良版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>施設一覧</h3>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="名前で検索..." onkeyup="filterItems()">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="setPark('ALL')">すべて</button>
+                    <button class="filter-btn land" onclick="setPark('LAND')">ランド</button>
+                    <button class="filter-btn sea" onclick="setPark('SEA')">シー</button>
+                </div>
+                <select id="category-select" onchange="filterItems()">
+                    <option value="ALL">すべてのカテゴリー</option>
+                    <option value="アトラクション">アトラクション</option>
+                    <option value="レストラン">レストラン・ワゴン</option>
+                    <option value="ショー">ショー・グリーティング</option>
+                </select>
+            </div>
+            <div id="item-list"></div>
+        </div>
+
+        <div class="main">
+            <h3>スケジュール (8:00 - 21:00)</h3>
+            <div id="timeline-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
