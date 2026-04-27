@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Disney Planner Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="top-section">
+            <div class="section-header">
+                <span>タイムスケジュール</span>
+                <button id="group-btn" onclick="openGroupModal()">グループ</button>
+            </div>
+            <div id="timeline-container" class="timeline"></div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchTab('list')">施設一覧</button>
+                <button class="tab-btn" onclick="switchTab('map')">マップ</button>
+            </div>
+            <div id="list-view" class="view-content active">
+                <div class="filter-area">
+                    <input type="text" id="search-input" placeholder="名前で検索..." onkeyup="filterItems()">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" id="btn-all" onclick="setPark('ALL')">すべて</button>
+                        <button class="filter-btn" id="btn-land" onclick="setPark('LAND')">ランド</button>
+                        <button class="filter-btn" id="btn-sea" onclick="setPark('SEA')">シー</button>
+                    </div>
+                    <select id="category-select" onchange="filterItems()">
+                        <option value="ALL">すべてのカテゴリー</option>
+                        <option value="アトラクション">アトラクション</option>
+                        <option value="レストラン">レストラン・ワゴン</option>
+                        <option value="ショー">ショー・パレード</option>
+                    </select>
+                </div>
+                <div id="item-list" class="item-grid"></div>
+            </div>
+            <div id="map-view" class="view-content">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="group-modal" class="modal">
+        <div class="modal-content">
+            <h3>グループ共有</h3>
+            <div id="group-initial-menu">
+                <button class="menu-btn" onclick="createGroupCode()">グループを作成（コード発行）</button>
+                <button class="menu-btn" onclick="showJoinInput()">グループコードを入力</button>
+            </div>
+            <div id="group-join-input" style="display:none;">
+                <p>共有されたコードを貼り付けてください</p>
+                <textarea id="group-code-input" placeholder="ここにコードをペースト"></textarea>
+                <button class="action-btn" onclick="joinGroup()">参加する</button>
+            </div>
+            <div id="group-result-display" style="display:none;">
+                <p>このコードをコピーして友達に送ってください：</p>
+                <textarea id="share-code-display" readonly></textarea>
+                <button class="action-btn" onclick="copyGroupCode()">コードをコピー</button>
+            </div>
+            <button class="close-btn" onclick="closeGroupModal()">閉じる</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
